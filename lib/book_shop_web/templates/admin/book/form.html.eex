@@ -1,0 +1,20 @@
+<%= form_for @changeset, @action, @opts, fn f -> %>
+  <%= label f, :title %>
+  <%= text_input f, :title %>
+  <%= error_tag f, :title %>
+
+  <%= label f, :author %>
+  <%= text_input f, :author %>
+  <%= error_tag f, :author %>
+
+  <%= label f, :price %>
+  <%= number_input f, :price, min: 0.0, step: 0.01 %>
+  <%= error_tag f, :price %>
+
+  <%= label f, :condition_id %>
+  <%= select f, :condition_id, get_book_conditions_list() %>
+  <%= error_tag f, :condition_id %>
+
+  <br>
+  <%= submit "Add to shop" %>
+<%= end %>

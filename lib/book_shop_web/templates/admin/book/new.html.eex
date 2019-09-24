@@ -1,0 +1,10 @@
+<h1>Add new book</h1>
+<%= render "form.html",
+    Map.merge(
+      assigns,
+      %{
+        action: Routes.admin_book_path(@conn, :create),
+        opts: [method: :post]
+      }
+    )
+%>

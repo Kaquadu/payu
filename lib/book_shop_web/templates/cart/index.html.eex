@@ -1,0 +1,25 @@
+<h1> My cart </h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Contidion</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for book <- @books do %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.price %></td>
+      <td><%= book.condition.name %></td>
+      <td><%= link "Remove from cart", to: Routes.cart_path(@conn, :remove_from_cart, id: book.id), method: :delete%>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2> Full price: <%= "#{@full_price}" %> </h2>
