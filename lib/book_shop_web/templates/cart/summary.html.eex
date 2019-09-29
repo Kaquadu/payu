@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-4">
+    <%= form_for @conn, Routes.cart_path(@conn, :proceed_transaction), [method: :post], fn f -> %>
+      <%= label f, :email, "Email" %> <br>
+      <%= text_input f, :email, required: true %>
+      <%= error_tag f, :email %>
+      <br>
+      <%= label f, :f_name, "Imię" %> <br>
+      <%= text_input f, :f_name, required: true %>
+      <%= error_tag f, :f_name %>
+      <br>
+      <%= label f, :l_name, "Nazwisko" %> <br>
+      <%= text_input f, :l_name, required: true %>
+      <%= error_tag f, :l_name %>
+      <br>
+      <%= label f, :street, "Ulica" %> <br>
+      <%= text_input f, :street, required: true %>
+      <%= error_tag f, :street %>
+      <br>
+      <%= label f, :number, "Numer" %> <br>
+      <%= text_input f, :number, required: true %>
+      <%= error_tag f, :number %>
+      <br>
+      <%= label f, :zip_code, "Kod pocztowy" %> <br>
+      <%= text_input f, :zip_code, required: true %>
+      <%= error_tag f, :zip_code %>
+      <br>
+      <%= label f, :city, "Miasto" %> <br>
+      <%= text_input f, :city, required: true %>
+      <%= error_tag f, :city %> <br>
+      <%= submit "", class: "payu-button", name: "price", value: @full_price%>
+    <% end %>
+  </div>
+  <div class="row-8">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>Tytuł</th>
+          <th>Autor</th>
+          <th>Cena</th>
+          <th>Stan</th>
+          <th>Opcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for book <- @books do %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.price %></td>
+          <td><%= book.condition.name %></td>
+          <td><%= link "Remove from cart", to: Routes.cart_path(@conn, :remove_from_cart, id: book.id), method: :delete%>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <h3> Pełna cena: <%= "#{@full_price}" %> </h3>
+  </div>
+</div>

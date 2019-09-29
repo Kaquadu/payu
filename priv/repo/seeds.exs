@@ -19,16 +19,26 @@ conditions = [
   %{name: "Bad"}
 ]
 
+Enum.each(conditions, fn condition -> 
+  BookShop.Market.create_book_condition(condition)
+end)
+
 shop_statuses = [
   %{name: "Available"},
   %{name: "Cart"},
   %{name: "Sold"}
 ]
 
-Enum.each(conditions, fn condition -> 
-  BookShop.Market.create_book_condition(condition)
-end)
-
 Enum.each(shop_statuses, fn status -> 
   BookShop.Market.create_shop_status(status)
+end)
+
+transaction_states = [
+  %{name: "Proceeding"},
+  %{name: "Rejected"},
+  %{name: "Positive"}
+]
+
+Enum.each(transaction_states, fn state ->
+  BookShop.Payments.create_transaction_state(state)
 end)

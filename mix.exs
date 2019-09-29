@@ -43,7 +43,9 @@ defmodule BookShop.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:navigation_history, "~> 0.0"}
+      {:navigation_history, "~> 0.0"},
+      {:hackney, "~> 1.13"},
+      {:tesla, "~> 1.3.0"}
     ]
   end
 

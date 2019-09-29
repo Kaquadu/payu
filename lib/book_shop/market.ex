@@ -51,6 +51,6 @@ defmodule BookShop.Market do
   def get_default_shop_status() do
     s =
       Repo.get_by(ShopStatus, name: "Available")
-    s.name |> IO.inspect
+    s.name
   end
 end

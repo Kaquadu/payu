@@ -8,23 +8,31 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
-    <header>
-      <div class="row">
-        <a href="<%= Routes.page_path(@conn, :index) %>" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/logo.png") %>" alt="Book Shop Logo"/>
-        </a>
-        <nav role="navigation">
-          <ul>
-            <li><a href="<%= Routes.page_path(@conn, :index) %>">Homepage</a></li>
-            <li><a href="<%= Routes.book_path(@conn, :index) %>">Books list</a></li>
-            <li><a href="<%= Routes.cart_path(@conn, :index) %>">My cart</a></li>
-          </ul>
-        </nav>
+    <header class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <div class="centering-container">
+              <a href="<%= Routes.page_path(@conn, :index) %>" class="phx-logo">
+                <img src="<%= Routes.static_path(@conn, "/images/logo2.png") %>" alt="Book Shop Logo" width="150" height="100"/>
+              </a>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="centering-container">
+              <h1>Witaj w książkowym sklepie charytatywnym!</h1>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= unless is_nil(get_flash(@conn, :info)) do %>
+        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <% end %>
+      <%= unless is_nil(get_flash(@conn, :error)) do %>
+        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <% end %>
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>

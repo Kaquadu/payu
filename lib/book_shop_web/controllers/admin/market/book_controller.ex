@@ -16,7 +16,7 @@ defmodule BookShopWeb.Admin.BookController do
   def create(conn, %{"book" => book}) do
     book = Map.merge(book, %{"shop_status_id" => "1"})
     case Market.create_book(book) do
-      {:ok, book} -> book |> IO.inspect
+      {:ok, book} -> 
         redirect(conn, to: Routes.book_path(conn, :show, book))
       {:error, changeset} ->
         conn

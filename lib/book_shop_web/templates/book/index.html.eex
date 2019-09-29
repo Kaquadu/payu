@@ -1,23 +1,35 @@
-<h1> Book list </h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
-      <th>Contidion</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for book <- @books do %>
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.author %></td>
-      <td><%= book.price %></td>
-      <td><%= book.condition.name %></td>
-      <td><%= link "Add to cart", to: Routes.cart_path(@conn, :add_to_cart, id: book.id), method: :post %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="nav nav-pills nav-justify-content">
+  <li class="nav-item">
+    <a class="nav-link" href="<%= Routes.page_path(@conn, :index) %>">Strona główna</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="<%= Routes.book_path(@conn, :index) %>">Lista książek</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="<%= Routes.cart_path(@conn, :index) %>">Mój koszyk</a>
+  </li>
+</ul>
+
+<br>
+<h2> Obecnie dostępne książki </h2>
+<hr>
+
+<div class="card-deck">
+  <%= for book <- @books do %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= book.title %></h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Tytuł: <%= book.title %></li>
+      <li class="list-group-item">Autor: <%= book.author %></li>
+      <li class="list-group-item">Cena: <%= book.price %> PLN</li>
+    </ul>
+    <div class="card-body">
+      <div class="centering-container">
+        <%= link "Do koszyka", to: Routes.cart_path(@conn, :add_to_cart, id: book.id), method: :post %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

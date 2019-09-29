@@ -1,12 +1,27 @@
-<h1> My cart </h1>
-<table>
-  <thead>
+<ul class="nav nav-pills nav-justify-content">
+  <li class="nav-item">
+    <a class="nav-link" href="<%= Routes.page_path(@conn, :index) %>">Strona główna</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="<%= Routes.book_path(@conn, :index) %>">Lista książek</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="<%= Routes.cart_path(@conn, :index) %>">Mój koszyk</a>
+  </li>
+</ul>
+
+<br>
+<h2> Mój koszyk </h2>
+<hr>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
     <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
-      <th>Contidion</th>
-      <th>Options</th>
+      <th>Tytuł</th>
+      <th>Autor</th>
+      <th>Cena</th>
+      <th>Stan</th>
+      <th>Opcje</th>
     </tr>
   </thead>
   <tbody>
@@ -22,4 +37,6 @@
   </tbody>
 </table>
 
-<h2> Full price: <%= "#{@full_price}" %> </h2>
+<h3> Pełna cena: <%= "#{@full_price}" %> </h3>
+
+<%= link "Przejdź do płatności", to: Routes.cart_path(@conn, :summary) %>

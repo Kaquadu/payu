@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>ID tranzakcji</th>
+      <th>Cena</th>
+      <th>Status</th>
+      <th>Imię i nazwisko</th>
+      <th>Opcje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for transaction <- @transactions do %>
+    <tr>
+      <td><%= transaction.transaction_key %></td>
+      <td><%= transaction.price %></td>
+      <td><%= transaction.status %></td>
+      <td><%= transaction.f_name <> " " <> transaction.l_name %></td>
+      <td><%= link "Pokaz szczegóły", to: "" %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

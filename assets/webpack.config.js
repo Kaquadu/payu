@@ -1,9 +1,9 @@
 const path = require('path');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin')
 const Webpack = require('webpack')
 const MinifyPlugin = require('babel-minify-webpack-plugin');
 
@@ -16,10 +16,10 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-    './js/app.js': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
+    'app': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js'))
   },
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../priv/static/js')
   },
   module: {
@@ -57,6 +57,7 @@ module.exports = (env, options) => ({
       from: 'static/',
       to: '../'
     }]),
+    new CompressionPlugin,
     new Webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

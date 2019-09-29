@@ -8,7 +8,14 @@
 use Mix.Config
 
 config :book_shop,
-  ecto_repos: [BookShop.Repo]
+  ecto_repos: [BookShop.Repo],
+  pos_id: "365786",
+  md5: "95c0f8e0aeb4a7e64bd6820a5094fbd0",
+  oauth_client_id: "365786",
+  oauth_secret: "d2fd5aefcd0a27bc4bc54fa651f7688a",
+  payu_url: "https://secure.snd.payu.com/"
+
+config :tesla, :adapter, Tesla.Adapter.Hackney
 
 # Configures the endpoint
 config :book_shop, BookShopWeb.Endpoint,
