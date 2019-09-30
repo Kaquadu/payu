@@ -1,11 +1,11 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
-      <th>Contidion</th>
-      <th>Sold</th>
+      <th>Tytuł</th>
+      <th>Autor</th>
+      <th>Cena</th>
+      <th>Stan</th>
+      <th>Sprzedana?</th>
     </tr>
   </thead>
   <tbody>

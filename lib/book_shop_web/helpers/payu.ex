@@ -28,6 +28,21 @@ defmodule BookShopWeb.Payu do
     |> Map.get("access_token")
   end
 
+  def get_order_info(transaction_key) do
+    token = obtain_access_token()
+    headers = [{"Authorization", "Bearer #{token}"}, {"Content-Type", "application/json"}]
+    url = "/api/v2_1/orders/#{transaction_key}"
+    {:ok, %Tesla.Env{status: 200, body: resp}} = Tesla.get(
+      Tesla.client([
+        {Tesla.Middleware.BaseUrl, @payu_api_url},
+        Tesla.Middleware.JSON,
+        {Tesla.Middleware.Headers, headers}
+      ]),
+      url)
+
+      resp
+  end
+
   def create_new_order(products, params) do
     total_sum = params |> Map.get("price")
     

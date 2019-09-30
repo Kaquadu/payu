@@ -13,6 +13,7 @@
                         'Elixir.BookShop.Payments.Transaction',
                         'Elixir.BookShop.Payments.TransactionState',
                         'Elixir.BookShop.Repo','Elixir.BookShop.Schema',
+                        'Elixir.BookShop.Workers.TransactionCheck',
                         'Elixir.BookShopWeb',
                         'Elixir.BookShopWeb.Admin.BookCondition',
                         'Elixir.BookShopWeb.Admin.BookController',

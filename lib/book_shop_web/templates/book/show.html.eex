@@ -1,10 +1,12 @@
 <table>
   <tr>
-    <th>Titile<th>
+    <th>Tytuł<th>
     <td><%= @book.title %></td>
-    <th>Author<th>
+    <th>Autor<th>
     <td><%= @book.author %></td>
-    <th>Price<th>
+    <th>Cena<th>
     <td><%= @book.price %></td>
+    <th>Stan<th>
+    <td><%= @book.condition.name %></td>
   </tr>
 </table>

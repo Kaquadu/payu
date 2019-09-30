@@ -29,7 +29,7 @@ defmodule BookShop.Market do
   end
 
   def get_book_by_id(id) do
-    Repo.get_by(Book, id: id)
+    Repo.get_by(Book, id: id) |> Repo.preload(:condition)
   end
 
   def get_books_by_id_list(id_list) do

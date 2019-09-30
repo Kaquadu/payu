@@ -13,7 +13,7 @@
     <tr>
       <td><%= transaction.transaction_key %></td>
       <td><%= transaction.price %></td>
-      <td><%= transaction.status %></td>
+      <td><%= transaction.state.name %></td>
       <td><%= transaction.f_name <> " " <> transaction.l_name %></td>
       <td><%= link "Pokaz szczegóły", to: "" %>
     </tr>

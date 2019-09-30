@@ -11,9 +11,10 @@ defmodule BookShop.Application do
       # Start the Ecto repository
       BookShop.Repo,
       # Start the endpoint when the application starts
-      BookShopWeb.Endpoint
+      BookShopWeb.Endpoint,
       # Starts a worker by calling: BookShop.Worker.start_link(arg)
       # {BookShop.Worker, arg},
+      BookShop.Workers.TransactionCheck
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

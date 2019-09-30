@@ -1,3 +1,5 @@
+<hr>
+
 <ul class="nav nav-pills nav-justify-content">
   <li class="nav-item">
     <a class="nav-link active" href="<%= Routes.page_path(@conn, :index) %>">Strona główna</a>
@@ -9,3 +11,19 @@
     <a class="nav-link" href="<%= Routes.cart_path(@conn, :index) %>">Mój koszyk</a>
   </li>
 </ul>
+
+<hr>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Sklep z książkami</h5>
+    <p class="card-text">Celem projektu jest ożywienie starych książek zalegających na półkach. 
+    Wszysktie środki pozyskane ze sprzedaży książek trafiają na cele charytatywne.</p>
+    <a href="<%= Routes.book_path(@conn, :index) %>" class="btn btn-primary">Do sklepu</a>
+  </div>
+</div>
+
+
+Projekt wykonany w ramach przedmiotu E-commerce, <br>
+WI PP GiTI 2019, <br>
+Kuba Kowalczykowski 127032

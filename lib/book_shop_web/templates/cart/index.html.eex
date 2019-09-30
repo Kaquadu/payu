@@ -1,3 +1,5 @@
+<hr>
+
 <ul class="nav nav-pills nav-justify-content">
   <li class="nav-item">
     <a class="nav-link" href="<%= Routes.page_path(@conn, :index) %>">Strona główna</a>
@@ -9,6 +11,8 @@
     <a class="nav-link active" href="<%= Routes.cart_path(@conn, :index) %>">Mój koszyk</a>
   </li>
 </ul>
+
+<hr>
 
 <br>
 <h2> Mój koszyk </h2>
